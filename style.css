@@ -1,0 +1,663 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  font-family: "Cormorant Garamond", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #d8c7b0;
+  /* Beige background for the whole page */
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #920000;
+  /* Red navbar */
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 1;
+}
+
+.logo {
+  font-weight: light;
+  font-size: 1.75rem;
+  color: #d8c7b0;
+  /* Beige text */
+  font-family: "Cormorant Garamond", sans-serif;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #d8c7b0;
+  /* Beige links */
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #d8c7b0;
+  /* Beige hamburger lines */
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 2rem;
+    background: #920000;
+    /* Red mobile menu */
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    z-index: 99;
+    min-width: 150px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hero {
+    justify-content: flex-start;
+    min-height: auto;
+    /* let content define height on small screens */
+  }
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  background: #d8c7b0;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 11vw;
+  font-weight: 700;
+  font-family: "Teachers", sans-serif;
+  color: #333;
+  text-align: left;
+  z-index: 2;
+}
+
+.line2 {
+  font-size: 8vw;
+  color: #920000;
+  text-align: right;
+  font-style: italic;
+}
+
+.stars {
+  position: absolute;
+  bottom: 0.25rem;
+  left: -3rem;
+  width: clamp(15vw, 35vw, 35vw);
+  height: auto;
+  z-index: 1;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+.slider {
+  background: #d8c7b0;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  height: auto;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: auto;
+}
+.slider::before, .slider::after {
+  content: "";
+  height: 100px;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+}
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+.slider::before {
+  left: 0;
+  top: 0;
+}
+.slider .slide-track {
+  animation: scroll 50s linear infinite;
+  display: flex;
+  width: calc(250px * 14);
+}
+.slider .slide {
+  background: #920000;
+}
+.slider .slide h3 {
+  font-size: 3rem;
+  justify-content: center;
+  align-items: center;
+  color: #d8c7b0;
+}
+
+.about-main {
+  display: flex;
+  justify-content: center;
+  /* horizontal centering */
+  align-items: center;
+  /* vertical centering */
+  padding: 2rem;
+}
+
+.id-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #920000;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  width: 60vw;
+  height: 35vw;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.id-photo {
+  width: 20vw;
+  height: 25vw;
+  object-fit: cover;
+  border-radius: 5%;
+  /* makes it circular */
+  border: 2px solid #920000;
+  /* accent color */
+}
+
+.id-info h3 {
+  margin: 0;
+  font-size: 5vw;
+  color: #d8c7b0;
+  font-family: "Teachers", sans-serif;
+}
+
+.id-info p {
+  margin: 0.1rem 0;
+  font-size: 1.5vw;
+  color: #d8c7b0;
+  font-family: "Cormorant Garamond", sans-serif;
+}
+
+@media (max-width: 600px) {
+  .id-card {
+    flex-direction: column;
+    gap: 0rem;
+    text-align: center;
+    width: 70vw;
+    height: auto;
+  }
+
+  .id-photo {
+    width: 40vw;
+    height: 30vw;
+    object-fit: cover;
+    border-radius: 5%;
+    /* makes it circular */
+    border: 2px solid #920000;
+    /* accent color */
+  }
+
+  .id-info h3 {
+    font-size: 5vw;
+    color: #d8c7b0;
+    font-family: "Teachers", sans-serif;
+  }
+
+  .id-info p {
+    font-size: 3vw;
+    color: #d8c7b0;
+    font-family: "Cormorant Garamond", sans-serif;
+  }
+}
+.contact {
+  background-color: #d8c7b0;
+  padding: 1rem 1rem;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+.contact-title {
+  font-size: 3rem;
+  color: #333;
+  font-family: "Teachers", sans-serif;
+  margin-bottom: 2rem;
+}
+
+.contact-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.contact-block {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-block button {
+  width: 20vw;
+  font-size: 2vw;
+  background-color: #920000;
+  font-family: "Cormorant Garamond", sans-serif;
+  color: #d8c7b0;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-block button:hover {
+  background-color: #6b0000;
+}
+
+.contact-block p {
+  margin: 0;
+  font-size: 2vw;
+  color: #333;
+}
+
+.projects-section {
+  background: #d8c7b0;
+  padding: 3rem 1rem;
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.projects-title {
+  font-family: "Teachers", serif;
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* category tabs */
+.category-tabs {
+  margin-bottom: 1rem;
+}
+
+.category-tabs .tab {
+  background: transparent;
+  border: 2px solid #920000;
+  border-radius: 6px;
+  color: #920000;
+  padding: 0.5rem 1rem;
+  margin: 0 0.3rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category-tabs .tab.active,
+.category-tabs .tab:hover {
+  background: #920000;
+  color: #d8c7b0;
+}
+
+/* slider layout */
+.slider-controls {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.slider-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #920000;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+.slider-wrapper {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.project-card {
+  flex: 0 0 auto;
+  width: 280px;
+  background: #920000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  scroll-snap-align: start;
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  margin: 0.75rem 1rem 0.25rem;
+  color: #d8c7b0;
+  font-size: 1.1rem;
+}
+
+.project-card p {
+  margin: 0 1rem 1rem;
+  font-size: 0.95rem;
+  color: #f5f0eb;
+}
+
+/* small-screen */
+@media (max-width: 600px) {
+  .project-card {
+    width: 220px;
+  }
+
+  .slider-btn {
+    font-size: 1.5rem;
+  }
+
+  .category-tabs .tab {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+/* 2) Body & Header */
+body {
+  font-family: "Cormorant Garamond", serif;
+  background: #d8c7b0;
+  color: #333;
+}
+
+header {
+  font-family: "Teachers", serif;
+  font-size: 2.3em;
+  color: #920000;
+  text-align: center;
+  margin: 100px 0 25px;
+  letter-spacing: 0.1em;
+}
+
+/* 3) Form Container */
+#form {
+  width: 500px;
+  margin: 10px auto 100px;
+  padding: 2rem;
+  background: #fff;
+  border: 2px solid #920000;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* 4) Inputs & Textarea */
+#form input,
+#form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  color: #333;
+  background: transparent;
+  border: 1px solid #920000;
+  outline: none;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+#form textarea {
+  height: 110px;
+  resize: vertical;
+}
+
+/* 5) Placeholder Styling (all browsers) */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: rgba(146, 0, 0, 0.6);
+  font-size: 0.875em;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(146, 0, 0, 0.6);
+  font-size: 0.875em;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(146, 0, 0, 0.6);
+  font-size: 0.875em;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: rgba(146, 0, 0, 0.6);
+  font-size: 0.875em;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(146, 0, 0, 0.6);
+  font-size: 0.875em;
+}
+
+/* 6) Hover & Focus States */
+#form input:hover,
+#form textarea:hover {
+  background: #920000;
+  color: #d8c7b0;
+  border-color: #920000;
+}
+
+#form input:focus,
+#form textarea:focus {
+  background: #920000;
+  color: #d8c7b0;
+  border-color: #6b0000;
+}
+
+/* placeholder on hover/focus */
+input:hover::-webkit-input-placeholder,
+textarea:hover::-webkit-input-placeholder,
+input:hover::placeholder,
+textarea:hover::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder,
+input:focus::placeholder,
+textarea:focus::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 7) Submit Button */
+#submit {
+  display: block;
+  width: auto;
+  margin: 0 auto;
+  padding: 0.75rem 2rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  color: #d8c7b0;
+  background: #920000;
+  border: 1px solid #920000;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+#submit:hover {
+  background: #6b0000;
+  color: #fff;
+}
+
+/* 8) Responsive */
+@media (max-width: 600px) {
+  #form {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+}
+.contact-section {
+  display: flex;
+  align-items: center;
+  /* <-- change flex-start → center */
+  gap: clamp(0rem, 1vw, 2rem);
+  padding: 0rem 8rem;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1;
+}
+
+/* make the form fill its wrapper */
+#contact-form {
+  width: 80%;
+  margin: 0;
+  /* remove any centering margins */
+  position: static;
+  /* ensure it isn’t absolute */
+}
+
+/* stack on narrow screens */
+@media (max-width: 700px) {
+  .contact-section {
+    flex-direction: column;
+    padding: 2rem 2rem;
+  }
+
+  .contact-coffee {
+    margin: 1rem;
+  }
+}
+.contact-coffee {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-family: "Teachers", sans-serif;
+  color: #333;
+  text-align: center;
+  margin: 2rem;
+}
+
+.contact-right {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  text-align: center;
+  font-weight: bold;
+  margin-top: -2rem;
+}
+
+/* Footer */
+.site-footer {
+  background: #920000;
+  font-family: "Cormorant Garamond", serif;
+  padding: 3rem 2rem 1rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-col h4,
+.footer-logo {
+  font-family: "Teachers", serif;
+  color: #d8c7b0;
+  margin-bottom: 1rem;
+}
+
+.footer-col p,
+.footer-col ul,
+.footer-col a {
+  margin: 0.35rem 0;
+  font-size: 0.95rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li a:hover,
+.footer-col a:hover {
+  color: #333;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  border-top: 1px solid;
+  padding-top: 1rem;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-col {
+    min-width: auto;
+  }
+}
